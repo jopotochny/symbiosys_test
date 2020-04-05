@@ -1,0 +1,72 @@
+$yellow: #DDCB37;
+$borderColor: lightgray;
+.eventDiv {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.eventDiv > .cardDiv{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: $borderColor 2px solid;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  text-align: left;
+}
+
+.iconDiv{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: -20px;
+}
+
+.dateAndTitleContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.locationContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.locationContainer > .locationText{
+  color: $yellow;
+  font-size: 8pt;
+  font-weight: bold;
+  margin: 5px;
+
+
+}
+
+.dateAndTitleContainer > .dateText{
+  color: gray;
+  font-size: 8pt;
+  font-weight: bold;
+  margin: 5px;
+
+}
+
+.dateAndTitleContainer > .titleText{
+  font-weight: 600;
+  margin: 5px;
+
+}
+
+.eventButton {
+  background-color: white;
+  border: $borderColor 2px solid;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  &:hover{
+    background-color: lightgray;
+    cursor: pointer;
+  }
+}
