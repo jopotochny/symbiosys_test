@@ -1,4 +1,9 @@
+$headerColor: #E4E4E4;
+
 .header{
   height: 80px;
-  background-color: lightgray;
+  background-color: $headerColor;
+  display: flex;
+  flex-direction: row;
 }
+

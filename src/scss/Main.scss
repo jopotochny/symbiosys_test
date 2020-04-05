@@ -1,9 +1,24 @@
+@import "../scss/Header";
+$menuDrawerWidth: 225px;
+$headerDrawerWidth: 360px;
+$green: #27A678;
 .mainDiv{
   min-height: 100%;
+}
 
+.mainDivShiftLeft{
+  margin-left: $menuDrawerWidth;
+}
+
+.mainDivShiftRight{
+  margin-right: $headerDrawerWidth;
 }
 .searchMenu{
   height: 80px;
+  border-top: $headerColor 4px solid;
+  border-bottom: $headerColor 4px solid;
+  display: flex;
+  flex-direction: row;
 }
 
 .searchResults{
@@ -15,4 +30,108 @@
 
 .eventsDiv{
   min-height: 100%;
+}
+
+.menuIconDiv{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.menuIconButton{
+  margin-left: 25px;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  border: none;
+  background: transparent;
+}
+
+.rightIconsDiv{
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+}
+.rightIconButton{
+  margin-right: 25px;
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  border: none;
+  background-color: $headerColor;
+  &:hover{
+    background-color: white;
+  }
+}
+.rightIconButtonSelected{
+  @extend .rightIconButton;
+  background-color: white;
+}
+
+.menuDrawer{
+  background-color: #13161F;
+  width: $menuDrawerWidth;
+  height: 100%;
+}
+
+.headerDrawer{
+  height: 100%;
+  width: $headerDrawerWidth;
+}
+
+.logoImage{
+  margin-top: 20px;
+}
+
+.searchBarDiv{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.filtersButton{
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 10pt;
+  display: flex;
+  flex-direction: row;
+  font-weight: bolder;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 25px;
+  margin-right: 25px;
+  &:hover{
+    background-color: $headerColor;
+  }
+}
+
+.searchBar{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 2px;
+  border: lightgray 1px solid;
+  text-indent: 10%;
+}
+
+.addEventDiv{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.addEventButton{
+  background-color: $green;
+  border-radius: 2px;
+  height: 48px;
+  width: 48px;
+  border: none;
+  margin-right: 25px;
 }
