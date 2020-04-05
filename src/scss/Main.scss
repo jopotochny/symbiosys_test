@@ -1,4 +1,18 @@
+.mainDiv{
+  min-height: 100%;
+
+}
+.searchMenu{
+  height: 80px;
+}
+
 .searchResults{
+  height: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.eventsDiv{
+  min-height: 100%;
 }

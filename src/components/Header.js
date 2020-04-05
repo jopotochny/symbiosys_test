@@ -1,9 +1,9 @@
 import React from 'react';
-
+import '../scss/Header.scss';
 export default function Header(props){
-    let {className} = this.props;
+    let {className} = props;
     return(
-      <div className={className}>
+      <div className={className ? className : "header"}>
 
       </div>
     );
