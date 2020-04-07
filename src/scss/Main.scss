@@ -1,7 +1,8 @@
-@import "../scss/Header";
 $menuDrawerWidth: 225px;
 $headerDrawerWidth: 360px;
 $green: #27A678;
+$headerColor: #E4E4E4;
+
 .mainDiv{
   min-height: 100%;
 }
@@ -13,6 +14,7 @@ $green: #27A678;
 .mainDivShiftRight{
   margin-right: $headerDrawerWidth;
 }
+
 .searchMenu{
   height: 80px;
   border-top: $headerColor 4px solid;
@@ -78,9 +80,20 @@ $green: #27A678;
   height: 100%;
 }
 
+.wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
 .headerDrawer{
+  margin-top: 80px;
+
+}
+
+.headerDrawerDiv{
   height: 100%;
   width: $headerDrawerWidth;
+
 }
 
 .logoImage{

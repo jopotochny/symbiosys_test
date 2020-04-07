@@ -1,9 +1,13 @@
-$headerColor: #E4E4E4;
-
+@import "Main";
 .header{
   height: 80px;
   background-color: $headerColor;
   display: flex;
   flex-direction: row;
+}
+
+.headerShiftRight{
+  @extend .header;
+  margin-left: $menuDrawerWidth;
 }
 
