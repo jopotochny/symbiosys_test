@@ -51,7 +51,10 @@ function Tabulation(props){
                             <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
                         </div>
                         <div className="addConversationButtonWrapper">
-                            <button className="addConversationButton"></button>
+                            <button className="addConversationButton">
+                                <i className="addConversationIcon" data-eva="plus-circle-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="white"/>
+                                <p>Create a conversation</p>
+                            </button>
                         </div>
                 </div>
             </TabPanel>

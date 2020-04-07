@@ -80,11 +80,6 @@ $headerColor: #E4E4E4;
   height: 100%;
 }
 
-.wrapper{
-  display: flex;
-  flex-direction: row;
-}
-
 .headerDrawer{
   margin-top: 80px;
 
@@ -98,6 +93,7 @@ $headerColor: #E4E4E4;
 
 .logoImage{
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .searchBarDiv{
@@ -147,4 +143,29 @@ $headerColor: #E4E4E4;
   width: 48px;
   border: none;
   margin-right: 25px;
+}
+
+.menuButton{
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  border: none;
+  height: 60px;
+  margin: 10px 0 10px 0;
+}
+
+.menuButtonSelected{
+  @extend .menuButton;
+  color: white;
+}
+
+.menuIcon{
+  margin-left: 20px;
+}
+
+.menuText{
+  font-weight: bolder;
+  margin-left: 20px;
 }

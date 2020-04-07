@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Header from '../components/Header';
 import EventCard from '../components/EventCard';
 import Button from '../components/Button';
@@ -19,6 +19,9 @@ function Main(props){
     let [menuDrawerVisible, setMenuDrawerVisible] = useState(false);
     let [headerDrawerVisible, setHeaderDrawerVisible] = useState(false);
     let [selectedRightButton, setSelectedRightButton] = useState("none");
+    let [selectedMenuButton, setSelectedMenuButton] = useState("none");
+
+
     let toggleMenuDrawer = () => {
         setMenuDrawerVisible(!menuDrawerVisible);
     };
@@ -58,6 +61,26 @@ function Main(props){
           <Drawer anchor="left" variant="persistent" open={menuDrawerVisible}>
               <div className="menuDrawer">
                   <img className="logoImage" src={"/logo.svg"}/>
+                  <button className={selectedMenuButton === "dashboard" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("dashboard")}>
+                      <i className="menuIcon" data-eva="layout-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <p className="menuText">Dashboard</p>
+                  </button>
+                  <button className={selectedMenuButton === "statistics" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("statistics")}>
+                      <i className="menuIcon" data-eva="trending-up-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <p className="menuText">Statistics</p>
+                  </button>
+                  <button className={selectedMenuButton === "documents" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("documents")}>
+                      <i className="menuIcon" data-eva="folder-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <p className="menuText">Documents</p>
+                  </button>
+                  <button className={selectedMenuButton === "media" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("media")}>
+                      <i className="menuIcon" data-eva="image-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <p className="menuText">Media</p>
+                  </button>
+                  <button className={selectedMenuButton === "events" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("events")}>
+                      <i className="menuIcon" data-eva="calendar-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <p className="menuText">Events</p>
+                  </button>
               </div>
           </Drawer>
           <Drawer  classes={{paper: "headerDrawer"}} anchor="right" variant="persistent" open={headerDrawerVisible} elevation="0">
@@ -80,12 +103,15 @@ function Main(props){
                       </button>
                   </div>
               </div>
-              <div className="searchResults">
-                  <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>
-                  <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>
-                  <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>
-                  <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>
-                  <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>
+              <div >
+                  <div className="searchResults">
+                      {selectedMenuButton === "events" ? [<EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>,
+                          <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>,
+                          <EventCard date="19 Sept 2019" title="3 Smart Reasons Why You Should Consider Paying For Your Traffic. Here is a longer title." location="Deonmouth"/>,
+                          <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>,
+                          <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>] : null}
+
+                  </div>
               </div>
           </div>
       </div>

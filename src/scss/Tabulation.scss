@@ -6,3 +6,25 @@
   display: flex;
   flex-direction: column;
 }
+
+.addConversationButtonWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.addConversationButton{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #27A678;
+  width: 80%;
+  color: white;
+  font-size: 12pt;
+  border: none;
+}
+
+.addConversationIcon{
+  margin: 0 20px 0 20px;
+}
