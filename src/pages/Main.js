@@ -26,66 +26,75 @@ function Main(props){
         setMenuDrawerVisible(!menuDrawerVisible);
     };
     let toggleHeaderDrawer = (button) => {
-      setHeaderDrawerVisible(!headerDrawerVisible);
-      selectedRightButton === button ? setSelectedRightButton("none") : setSelectedRightButton(button);
+        if(button === selectedRightButton){
+            // close the drawer as we are clicking the button that opened it
+            setHeaderDrawerVisible(false);
+            setSelectedRightButton("none");
+        }
+        else{
+            setSelectedRightButton(button);
+            setHeaderDrawerVisible(true);
+        }
     };
     return(
         <div>
             <Header className={"header" + ( menuDrawerVisible ? " headerShiftRight" : "")}>
                 <div className="menuIconDiv">
                     <button className="menuIconButton" onClick={() => toggleMenuDrawer()}>
-                        <i className="menuIcon" data-eva="menu-arrow-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                        <i className="menuOpenIcon" data-eva="menu-arrow-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
                     </button>
                 </div>
                 <div className="rightIconsDiv">
-                    <button className={selectedRightButton === "friends" ? "rightIconButtonSelected": "rightIconButton"}>
-                        <i className="rightIcon" data-eva="person-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                    <button className={selectedRightButton === "friends" ? "rightIconButtonSelected": "rightIconButton"} onClick={() => toggleHeaderDrawer("friends")}>
+                        <img className={selectedRightButton === "friends" ? "rightIconGreen" : "rightIcon"} src={process.env.PUBLIC_URL + "/person-outline-gray.svg"} alt=""/>
                     </button>
-                    <button className={selectedRightButton === "notifications" ? "rightIconButtonSelected": "rightIconButton"}>
-                        <i className="rightIcon" data-eva="bell-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                    <button className={selectedRightButton === "notifications" ? "rightIconButtonSelected": "rightIconButton"} onClick={() => toggleHeaderDrawer("notifications")}>
+                        <img className={selectedRightButton === "notifications" ? "rightIconGreen" : "rightIcon"} src={process.env.PUBLIC_URL + "/bell-outline-gray.svg"} alt=""/>
                     </button>
-                    <Button className={selectedRightButton === "messages" ? "rightIconButtonSelected": "rightIconButton"}
-                            handleOnClick={() => toggleHeaderDrawer("messages")}
-                            isSelected={selectedRightButton === "messages"}
-                            icons={
-                                {
-                                    isSelected: <i className="rightIcon" data-eva="message-square-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#27a678"/>,
-                                    notSelected: <i className="rightIcon" data-eva="message-square-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
-                                }
-                            }>
-                    </Button>
+                    <button className={selectedRightButton === "messages" ? "rightIconButtonSelected": "rightIconButton"} onClick={() => toggleHeaderDrawer("messages")}>
+                        <img className={selectedRightButton === "messages" ? "rightIconGreen" : "rightIcon"} src={process.env.PUBLIC_URL + "/message-square-outline-gray.svg"} alt=""/>
+                    </button>
                 </div>
             </Header>
       <div className={(menuDrawerVisible ? "mainDivShiftLeft" : "mainDiv") + (headerDrawerVisible ? " mainDivShiftRight" : "")}>
 
           <Drawer anchor="left" variant="persistent" open={menuDrawerVisible}>
               <div className="menuDrawer">
-                  <img className="logoImage" src={"/logo.svg"}/>
+                  <div>
+                  <img className="logoImage" src={"/logo.svg"} alt=""/>
                   <button className={selectedMenuButton === "dashboard" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("dashboard")}>
-                      <i className="menuIcon" data-eva="layout-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <img className={selectedMenuButton === "dashboard" ? "menuIconYellow" : "menuIcon"} src={process.env.PUBLIC_URL + "/layout-outline-gray.svg"} alt=""/>
+
                       <p className="menuText">Dashboard</p>
                   </button>
                   <button className={selectedMenuButton === "statistics" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("statistics")}>
-                      <i className="menuIcon" data-eva="trending-up-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <img className={selectedMenuButton === "statistics" ? "menuIconYellow" : "menuIcon"} src={process.env.PUBLIC_URL + "/trending-up-outline-gray.svg"} alt=""/>
                       <p className="menuText">Statistics</p>
                   </button>
                   <button className={selectedMenuButton === "documents" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("documents")}>
-                      <i className="menuIcon" data-eva="folder-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <img className={selectedMenuButton === "documents" ? "menuIconYellow" : "menuIcon"} src={process.env.PUBLIC_URL + "/folder-outline-gray.svg"} alt=""/>
                       <p className="menuText">Documents</p>
                   </button>
                   <button className={selectedMenuButton === "media" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("media")}>
-                      <i className="menuIcon" data-eva="image-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <img className={selectedMenuButton === "media" ? "menuIconYellow" : "menuIcon"} src={process.env.PUBLIC_URL + "/image-outline-gray.svg"} alt=""/>
                       <p className="menuText">Media</p>
                   </button>
                   <button className={selectedMenuButton === "events" ? "menuButtonSelected" : "menuButton"} onClick={() => setSelectedMenuButton("events")}>
-                      <i className="menuIcon" data-eva="calendar-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="#ABABAB"/>
+                      <img className={selectedMenuButton === "events" ? "menuIconYellow" : "menuIcon"} src={process.env.PUBLIC_URL + "/calendar-outline-gray.svg"} alt=""/>
                       <p className="menuText">Events</p>
                   </button>
+                  </div>
+                  <div className="logoutDiv">
+                      <button className="logoutButton">
+                          <img className="menuIcon" src={process.env.PUBLIC_URL + "/power-outline-gray.svg"} alt=""/>
+                          <p className="logoutText">Logout</p>
+                      </button>
+                  </div>
               </div>
           </Drawer>
           <Drawer  classes={{paper: "headerDrawer"}} anchor="right" variant="persistent" open={headerDrawerVisible} elevation="0">
               <div className="headerDrawerDiv">
-                  <Tabulation/>
+                  { selectedRightButton === "messages" ? <Tabulation/> : null}
               </div>
           </Drawer>
               <div className="eventsDiv">

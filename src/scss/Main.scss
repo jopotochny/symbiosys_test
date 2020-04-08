@@ -28,6 +28,9 @@ $headerColor: #E4E4E4;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 .eventsDiv{
@@ -74,10 +77,24 @@ $headerColor: #E4E4E4;
   background-color: white;
 }
 
+.rightIcon{
+  height: 24px;
+  width: 24px;
+}
+.rightIconGreen{
+  @extend .rightIcon;
+  filter: brightness(0) saturate(100%) invert(51%) sepia(46%) saturate(594%) hue-rotate(107deg) brightness(96%) contrast(93%);
+}
+
 .menuDrawer{
   background-color: #13161F;
   width: $menuDrawerWidth;
-  height: 100%;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .headerDrawer{
@@ -163,9 +180,43 @@ $headerColor: #E4E4E4;
 
 .menuIcon{
   margin-left: 20px;
+  width: 24px;
+  height: 24px;
+}
+.menuIconYellow{
+  @extend .menuIcon;
+  filter: brightness(0) saturate(100%) invert(65%) sepia(93%) saturate(361%) hue-rotate(11deg) brightness(108%) contrast(81%);
+
+}
+
+.menuOpenIcon{
+  margin-left: 20px;
 }
 
 .menuText{
   font-weight: bolder;
   margin-left: 20px;
+}
+
+.logoutDiv{
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.logoutButton{
+  @extend .menuButton;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &:hover{
+    color: white;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(210deg) brightness(102%) contrast(102%);
+  }
+
+}
+.logoutText{
+  margin-left: 20px;
+  font-weight: bolder;
+  font-size: 12pt;
 }
