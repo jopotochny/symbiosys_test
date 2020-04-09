@@ -4,10 +4,14 @@
   background-color: $headerColor;
   display: flex;
   flex-direction: row;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .headerShiftRight{
   @extend .header;
   margin-left: $menuDrawerWidth;
+  width: calc(100% - #{$menuDrawerWidth});
 }
 

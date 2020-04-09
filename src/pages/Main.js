@@ -1,20 +1,11 @@
 import React, {useState} from 'react';
 import Header from '../components/Header';
 import EventCard from '../components/EventCard';
-import Button from '../components/Button';
 import Tabulation from '../components/Tabulation';
-import {Drawer, makeStyles} from '@material-ui/core';
+import {Drawer} from '@material-ui/core';
 import '../scss/Main.scss';
 function Main(props){
-    const useStyles = makeStyles((theme) => ({
-        root: {
-            display: 'flex',
-        },
-        headerDrawer: {
-            marginTop: "100px",
-            border: "#E4E4E4 8px solid"
-        }}));
-    const classes = useStyles();
+
 
     let [menuDrawerVisible, setMenuDrawerVisible] = useState(false);
     let [headerDrawerVisible, setHeaderDrawerVisible] = useState(false);
@@ -92,27 +83,27 @@ function Main(props){
                   </div>
               </div>
           </Drawer>
-          <Drawer  classes={{paper: "headerDrawer"}} anchor="right" variant="persistent" open={headerDrawerVisible} elevation="0">
-              <div className="headerDrawerDiv">
-                  { selectedRightButton === "messages" ? <Tabulation/> : null}
-              </div>
-          </Drawer>
               <div className="eventsDiv">
-              <div className="searchMenu">
-                  <div className="searchBarDiv">
-                      <button className="filtersButton">
-                          <i className="rightIcon" data-eva="funnel-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="black"/>
-                          Filters
-                      </button>
-                      <input className="searchBar" type="text" placeholder="Search..."/>
+                  <div className="searchMenu">
+                      <div className="searchBarDiv">
+                          <button className="filtersButton">
+                              <i className="rightIcon" data-eva="funnel-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="black"/>
+                              Filters
+                          </button>
+                          <input className="searchBar" type="text" placeholder="Search..."/>
+                      </div>
+                      <div className="addEventDiv">
+                          <button className="addEventButton">
+                              <i className="rightIcon" data-eva="plus-circle-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="white"/>
+                          </button>
+                      </div>
                   </div>
-                  <div className="addEventDiv">
-                      <button className="addEventButton">
-                          <i className="rightIcon" data-eva="plus-circle-outline" data-eva-width="24px" data-eva-height="24px" data-eva-fill="white"/>
-                      </button>
-                  </div>
-              </div>
-              <div >
+                  <Drawer  classes={{root: "headerDrawerRoot", paper: "headerDrawer"}} anchor="right" variant="persistent" open={headerDrawerVisible} elevation={0}>
+                      <div className="headerDrawerDiv">
+                          { selectedRightButton === "messages" ? <Tabulation/> : null}
+                      </div>
+                  </Drawer>
+              <div>
                   <div className="searchResults">
                       {selectedMenuButton === "events" ? [<EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>,
                           <EventCard date="19 Sept 2019" title="Get Best Site Advertiser In Your Side Pocket" location="Deonmouth"/>,

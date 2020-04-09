@@ -17,7 +17,6 @@ $headerColor: #E4E4E4;
 
 .searchMenu{
   height: 80px;
-  border-top: $headerColor 4px solid;
   border-bottom: $headerColor 4px solid;
   display: flex;
   flex-direction: row;
@@ -102,10 +101,13 @@ $headerColor: #E4E4E4;
 
 }
 
+.headerDrawerRoot{
+}
+
 .headerDrawerDiv{
   height: 100%;
   width: $headerDrawerWidth;
-
+  border-left: $headerColor 4px solid;
 }
 
 .logoImage{

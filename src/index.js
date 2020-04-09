@@ -3,10 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+const theme = createMuiTheme({
+    overrides: {
+        MuiDrawer: {
+            anchorRight: {
+                marginTop: 100
+            }
+        }
+    }
+});
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

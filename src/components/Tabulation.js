@@ -7,7 +7,8 @@ import ConversationCard from '../components/ConversationCard';
 import {withStyles} from '@material-ui/core'
 import '../scss/Tabulation.scss'
 function Tabulation(props){
-
+    /** This component contains the tabulation used to display conversations. If this were a real project this would be
+     * extracted to a generic component, but for simplicity's sake I have not done this **/
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
@@ -29,7 +30,7 @@ function Tabulation(props){
         },
         selected: "selectedTab",
         root: {
-            height: "80px",
+            height: "84px",
         },
         flexContainer: {
             border: "#E4E4E4 2px solid"
@@ -37,7 +38,7 @@ function Tabulation(props){
         }
     })(Tab);
     return (
-        <Paper square>
+        <Paper square elevation={0}>
             <StyledTabs
                 value={value}
                 onChange={handleChange}
@@ -48,6 +49,10 @@ function Tabulation(props){
             <TabPanel value={value} index={0}>
                 <div className="conversationsContainer">
                         <div className="conversationList">
+                            <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
+                            <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
+                            <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
+                            <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
                             <ConversationCard name="Phillip Saunders" date="29 Jul 2019 03:16PM"/>
                         </div>
                         <div className="addConversationButtonWrapper">

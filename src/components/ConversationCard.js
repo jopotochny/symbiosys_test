@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../scss/ConversationCard.scss';
+import * as eva from 'eva-icons';
 export default function ConversationCard(props){
+    /** This component represents a conversation within the messages tabulation. **/
     let {name, date} = props;
+    useEffect(() => {
+        eva.replace();
+    }, []);
     return(
         <div className="conversationCard">
             <div className="conversationIconWrapper">

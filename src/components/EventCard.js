@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import * as eva from 'eva-icons';
 import '../scss/EventCard.scss';
 function EventCard(props) {
-
+    /** This component represents an event, and is displayed when the menu drawer is selected on "Events" **/
     useEffect(() => {
     // add this line
     eva.replace();
